@@ -1,3 +1,5 @@
+//Title: Задатак: Серија сјајних партија
+
 #include <bits/stdc++.h>
 
 using namespace std;
