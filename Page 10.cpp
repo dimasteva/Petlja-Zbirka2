@@ -1,4 +1,6 @@
 /*
+Task: Tricolor
+
 Write a program that reads an array of integers and then transforms it so that the elements are divided into three parts based on the specified values A and B. In the first part, the elements are smaller than the specified value A (values from the interval [−∞, A)), in the second part, the elements are greater than or equal to the specified value A and smaller than or equal to the specified value B (values from the interval [A, B]), and in the third part, the elements are greater than the specified value B (values from the interval (B, +∞)). The order of elements within the parts does not matter. Read the elements into an array and then rearrange the order of elements in that array (do not use additional arrays).
 
 Input: The standard input contains the number of elements in the array, N, in one line, followed by the array elements separated by spaces in the next line. The last two lines contain integers A and B separated by a space, and A < B.
