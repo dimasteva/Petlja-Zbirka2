@@ -40,6 +40,20 @@ void DutchNationalFlagAlgorithm(int n, vector <int> &v, int a, int b)
     }
 }
 
+void PrintVector(vector <int> v, int a, int b)
+{
+    int endls = 0;
+
+    for (int x : v)
+    {
+        if (x >= a && endls == 0)
+            {cout << endl; endls++;}
+        else if (x > b && endls == 1)
+            {cout << endl; endls++;}
+        cout << x << " ";
+    }
+}
+
 
 int main()
 {
@@ -52,15 +66,5 @@ int main()
     int a, b; cin >> a >> b;
 
     DutchNationalFlagAlgorithm(n, v, a, b);
-
-    int endls = 0;
-
-    for (int x : v)
-    {
-        if (x >= a && endls == 0)
-            {cout << endl; endls++;}
-        else if (x > b && endls == 1)
-            {cout << endl; endls++;}
-        cout << x << " ";
-    }
+    PrintVector(v, a, b);
 }
