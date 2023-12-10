@@ -26,16 +26,17 @@ typedef long long ll;
 
 float calculate(int n, int a, int d)
 {
-    return (float(n) / 2) * (2 * a + (n - 1) * d);
+    return (float(n) * a + float(n * (n - 1) / 2) * d) / 1000;
 }
-
 
 int main()
 {
-    int n; cin >> n;
+    int n;
+    cin >> n;
     int a, d;
-    while(cin >> a >> d)
+    while (cin >> a >> d)
     {
-        cout << calculate(n, a, d) / 1000 << endl;
+        cout << fixed << setprecision(2) << calculate(n, a, d) << endl;
     }
+    return 0;
 }
