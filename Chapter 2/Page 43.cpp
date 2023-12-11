@@ -30,7 +30,7 @@ typedef long long ll;
 
 int main()
 {
-	  int n; cin >> n;
+    int n; cin >> n;
     int cnt = 1;
     cnt += n / 3;
     cout << cnt << endl;
