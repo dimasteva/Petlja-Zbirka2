@@ -32,7 +32,7 @@ int main()
 	int a, b, k;
 	cin >> a >> b >> k;
 	
-	int first = a / k;
+	int first = a % k == 0? a / k : a / k + 1;
 	int second = b / k;
-	cout << second - first + 1;
+	cout << (second >= first? second - first + 1 : 0);
 }
