@@ -48,3 +48,39 @@ In the query (20, 25), all tops start above height 20, so there is no object sta
 
 In the query (1, 2), all tops start below height 2, so the object (3, 5) at position 0 is the first one starting below height 2, and there is no object starting above height 2 (hence the value -1 is printed).
 */
+#include <bits/stdc++.h>
+
+using namespace std;
+
+typedef long long ll;
+
+#define forn(i, n) for (int i = 0; i < int(n); i++)
+#define forn1(i, n) for (int i = 1; i < int(n); i++)
+#define all(c) (c).begin(), (c).end()
+#define pb push_back
+#define MOD 1000000007 // 998244353
+#define FIO                \
+    ios::sync_with_stdio(false); \
+    cin.tie(0);                  \
+    cout.tie(0);
+
+int main() { 
+    int n; cin >> n;
+    vector <int> a(n);
+
+    int c; // bottom edges are useless
+    forn(i, n)
+        cin >> a[i] >> c;
+    
+    int m; cin >> m;
+    while(m--)
+    {
+        int x, y;
+        cin >> x >> y;
+
+        x = distance(a.begin(), upper_bound(all(a), x));
+        y = distance(a.begin(), lower_bound(all(a), y)) - 1;
+
+        cout << x << " " << y << endl;
+    }
+}
