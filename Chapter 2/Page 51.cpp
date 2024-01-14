@@ -20,20 +20,27 @@ Output
 NE
 */
 #include <bits/stdc++.h>
-
 using namespace std;
 
 typedef long long ll;
 
-#define forn(i, n)          for (int i = 0; i < int(n); i++)
-#define forn1(i, n)          for (int i = 1; i < int(n); i++)
+#define forn(i, n) for (int i = 0; i < int(n); i++)
+#define forn1(i, n) for (int i = 1; i < int(n); i++)
 #define all(c) (c).begin(), (c).end()
-#define pb                  push_back
-#define MOD                 1000000007 // 998244353
-#define FIO                 ios::sync_with_stdio(false); cin.tie(0); cout.tie(0);
+#define pb push_back
+#define MOD 1000000007 // 998244353
+#define FIO                \
+    ios::sync_with_stdio(false); \
+    cin.tie(0);                  \
+    cout.tie(0);
 
 bool prime(int n)
 {
+	if (n == 1 ||
+            (n % 2 == 0 && n != 2) ||
+            (n % 3 == 0 && n != 3))
+            return false;
+
     for (int i = 1; (6 * i - 1) * (6 * i - 1) <= n; i++)
     {
         if (n % (6 * i - 1) == 0 || n % (6 * i + 1) == 0)
@@ -44,6 +51,9 @@ bool prime(int n)
 
 int main()
 {
-	int n; cin >> n;
+    int n;
+    cin >> n;
     cout << (prime(n) ? "DA" : "NE");
+
+    return 0;
 }
