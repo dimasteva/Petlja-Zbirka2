@@ -22,7 +22,6 @@ The intervals [1, 3] and [2, 4] can be merged into the interval [1, 4], while th
 */
 
 #include <bits/stdc++.h>
-
 using namespace std;
 
 typedef long long ll;
@@ -32,27 +31,29 @@ typedef long long ll;
 #define all(c) (c).begin(), (c).end()
 #define pb push_back
 #define MOD 1000000007 // 998244353
-#define FIO                \
+#define FIO \
     ios::sync_with_stdio(false); \
     cin.tie(0);                  \
     cout.tie(0);
 
 int main()
 {
-    int n; cin >> n;
-    vector <pair<int, int>> v(n);
+    int n;
+    cin >> n;
+    vector<pair<int, int>> v(n);
 
     forn(i, n)
         cin >> v[i].first >> v[i].second;
-    
+
     sort(all(v));
 
     int a = v[0].first, b = v[0].second;
     int numberOfIntervals = 0, sum = 0;
+
     forn1(i, n)
     {
-        if (b > v[i].first)
-            b = v[i].second;
+        if (b >= v[i].first)
+            b = max(b, v[i].second);
         else
         {
             sum += b - a;
@@ -61,8 +62,12 @@ int main()
             b = v[i].second;
         }
     }
+
     sum += b - a;
     numberOfIntervals++;
 
-    cout << sum << endl << numberOfIntervals << endl;
+    cout << sum << endl
+         << numberOfIntervals << endl;
+
+    return 0;
 }
