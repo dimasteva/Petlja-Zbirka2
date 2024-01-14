@@ -1,8 +1,10 @@
 /*
 XOR
 
-Time Memory Input Output
-0.25 s 64 Mb standard output standard input
+Time: 0,25s
+Memory: 64mb
+Input: standard input
+Output: standard output 
 
 Given an array of distinct unsigned integers of length n and an unsigned integer t, determine how many pairs of numbers in the array have an exclusive disjunction (XOR) equal to the number t. Write a program that implements an algorithm to determine the requested number of pairs. The algorithm's time complexity should be O(n log n), and the spatial complexity should be O(n).
 
