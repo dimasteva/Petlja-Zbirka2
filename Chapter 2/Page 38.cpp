@@ -29,34 +29,42 @@ Output:
 */
 
 #include <bits/stdc++.h>
+
 using namespace std;
 
 typedef long long ll;
 
-ll ColumnSum(int n, int i)
+#define forn(i, n) for (int i = 0; i < int(n); i++)
+#define forn1(i, n) for (int i = 0; i < int(n); i++) // Fix the loop range here
+#define all(c) (c).begin(), (c).end()
+#define pb push_back
+#define MOD 1000000007 // 998244353
+#define FIO                \
+    ios::sync_with_stdio(false); \
+    cin.tie(0);                  \
+    cout.tie(0);
+
+ll ColumnSum(ll n, ll i)
 {
-	ll a1 = i;
-	
-	ll sum = n * (2 * a1 + (n - 1) * n) / 2;
-	
-	return sum;
+    ll a1 = i;
+    ll an = a1 + (n - 1) * n;
+    return (n * (a1 + an) / 2) % 1000000000;
 }
 
-ll RowSum(int n, int i)
+ll RowSum(ll n, ll i)
 {
-	ll a1 = i * n;
-	
-	ll sum = float(n) * (2 * a1 + (n - 1)) / 2;
-	
-	return sum;
+    ll a1 = i * n;
+    ll an = a1 + n - 1;
+    return (n * (a1 + an) / 2) % 1000000000;
 }
-
 
 int main()
 {
-	int n, i;
-	cin >> n >> i;
-	
-	cout << RowSum(n, i) << endl;
-	cout << ColumnSum(n, i) << endl;
+    ll n, i;
+    cin >> n >> i;
+
+    cout << RowSum(n, i) << endl;
+    cout << ColumnSum(n, i) << endl;
+
+    return 0;
 }
