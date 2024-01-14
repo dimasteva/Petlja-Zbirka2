@@ -36,21 +36,23 @@ typedef long long ll;
 #define all(c) (c).begin(), (c).end()
 #define pb push_back
 #define MOD 1000000007 // 998244353
-#define FIO                \
+#define FIO \
     ios::sync_with_stdio(false); \
-    cin.tie(0);                  \
+    cin.tie(0); \
     cout.tie(0);
 
 int main() { 
-    int n; cin >> n;
-    vector <int> a(n);
-    for(int &x : a)    
+    int n;
+    cin >> n;
+    vector<int> a(n);
+    for (int &x : a)    
         cin >> x;
-    
-    int m; cin >> m;
-    while(m--)
-    {
-        int c; cin >> c;
-        cout << distance(a.begin(), lower_bound(all(a), c, greater<int>())) << endl;
+
+    int m;
+    cin >> m;
+    while (m--) {
+        int c;
+        cin >> c;
+        cout << distance(a.begin(), upper_bound(all(a), c, greater<int>())) << endl;
     }
 }
