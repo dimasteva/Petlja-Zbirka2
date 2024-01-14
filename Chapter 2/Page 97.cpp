@@ -26,7 +26,6 @@ marko savic
 */
 
 #include <bits/stdc++.h>
-
 using namespace std;
 
 typedef long long ll;
@@ -36,7 +35,7 @@ typedef long long ll;
 #define all(c) (c).begin(), (c).end()
 #define pb push_back
 #define MOD 1000000007 // 998244353
-#define FIO                \
+#define FIO \
     ios::sync_with_stdio(false); \
     cin.tie(0);                  \
     cout.tie(0);
@@ -52,13 +51,15 @@ bool CompareByFirstCharacter(const pair<string, string> &a, const pair<string, s
 int main()
 {
     string name, surname;
-    vector <pair<string, string>> patients;
+    vector<pair<string, string>> patients;
 
-    while(cin >> name >> surname)
+    while (cin >> name >> surname)
         patients.pb(make_pair(name, surname));
-    
-    sort(all(patients), CompareByFirstCharacter);
+
+    stable_sort(all(patients), CompareByFirstCharacter);
 
     forn(i, patients.size())
         cout << patients[i].first << " " << patients[i].second << endl;
+
+    return 0;
 }
