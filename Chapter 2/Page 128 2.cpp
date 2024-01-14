@@ -32,19 +32,20 @@ typedef long long ll;
 #define all(c) (c).begin(), (c).end()
 #define pb push_back
 #define MOD 1000000007 // 998244353
-#define FIO                \
+#define FIO \
     ios::sync_with_stdio(false); \
-    cin.tie(0);                  \
+    cin.tie(0); \
     cout.tie(0);
 
 int main() {
-    int n; cin >> n;
+    FIO;
+    int n;
+    cin >> n;
     int indx = -1;
-    forn(i, n)
-    {
-        int c; cin >> c;
-        if (!(c - i) && indx == -1)
-        {
+    forn(i, n) {
+        int c;
+        cin >> c;
+        if (!(c - i) && indx == -1) {
             indx = i;
         }
     }
