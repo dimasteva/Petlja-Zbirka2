@@ -31,17 +31,24 @@ using namespace std;
 
 typedef long long ll;
 
-ll arithmeticSum(ll row)
-{
+ll arithmeticSum(ll row) {
     ll a1 = (row - 1) * (row - 1) + 1;
     ll n = 2 * row - 1;
-    return n * a1 + (n - 1) * n / 2;
+    ll an = a1 + n - 1;
+    return n * (a1 + an) / 2;
 }
 
-int main()
-{
-    ll row;
-    cin >> row;
+int main() {
+    int n;
+    cin >> n;
+    
+    while (n--) {
+        ll row;
+        cin >> row;
 
-    cout << arithmeticSum(row);
+        cout << arithmeticSum(row) << endl;
+    }
+
+    return 0;
 }
+
