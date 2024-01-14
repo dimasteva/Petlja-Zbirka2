@@ -1,8 +1,10 @@
 /*
 Twos and Threes Divisible by 3
 
-Time Memory Input Output
-1 s 64 MB standard output standard input
+Time: 1s
+Memory: 64mb
+Input: standard input
+Output: standard output 
 
 In the given array of natural numbers of length n, determine the number of groups consisting of two or three elements such that the sum of all elements in the group is divisible by 3. For example, in the array [2, 1, 3, 10], there are 4 such groups: [2, 1], [2, 10], [2, 1, 3], [2, 3, 10].
 
