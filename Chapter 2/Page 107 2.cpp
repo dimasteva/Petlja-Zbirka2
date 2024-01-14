@@ -20,55 +20,42 @@ Output
 5
 */
 
-#include <bits/stdc++.h>
-
+#include <iostream>
+#include <vector>
+#include <algorithm>
 using namespace std;
 
-typedef long long ll;
+int main() {
+    int n;
+    cin >> n;
+    vector<int> a(n);
+    for (int i = 0; i < n; i++) {
+        cin >> a[i];
+    }
+    sort(a.begin(), a.end());
+    a.erase(unique(a.begin(), a.end()), a.end());
 
-#define forn(i, n) for (int i = 0; i < int(n); i++)
-#define forn1(i, n) for (int i = 1; i < int(n); i++)
-#define all(c) (c).begin(), (c).end()
-#define pb push_back
-#define MOD 1000000007 // 998244353
-#define FIO                \
-    ios::sync_with_stdio(false); \
-    cin.tie(0);                  \
-    cout.tie(0);
-
-int main()
-{
-    int n; cin >> n;
-    vector <int> a(n);
-    for (int &x : a)
-        cin >> x;
-    sort(all(a));
-    
-    int start = 0, len = 0;
-    for (int i = 0; i < n - 1; i++)
-    {
-        if (abs(a[i + 1] - a[i]) == 1)
-        {    
-            int tempstart = i;
-            int templen = 2;
-            i++;
-            while(i < n - 1)
-            {
-                if (a[i + 1] - a[i] == 1)
-                    templen++, i++;
-                else if (a[i + 1] - a[i] <= 1)
-                    i++;
-                else
-                    break;
+    int max_len = 0, len = 1, start = 0, max_start = 0;
+    for (int i = 1; i < a.size(); i++) {
+        if (a[i] == a[i-1] + 1) {
+            len++;
+        } else {
+            if (len > max_len) {
+                max_len = len;
+                max_start = start;
             }
-            if (templen > len)
-            {
-                len = templen;
-                start = tempstart;
-            }
+            len = 1;
+            start = i;
         }
     }
-    for (int i = start; i <= start + len; i++)
-        if (i != 0 && a[i] != a[i - 1])
-            cout << a[i] << endl;
+    if (len > max_len) {
+        max_len = len;
+        max_start = start;
+    }
+
+    for (int i = max_start; i < max_start + max_len; i++) {
+        cout << a[i] << endl;
+    }
+
+    return 0;
 }
