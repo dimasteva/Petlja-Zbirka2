@@ -24,7 +24,6 @@ Output
 */
 
 #include <bits/stdc++.h>
-
 using namespace std;
 
 typedef long long ll;
@@ -34,25 +33,31 @@ typedef long long ll;
 #define all(c) (c).begin(), (c).end()
 #define pb push_back
 #define MOD 1000000007 // 998244353
-#define FIO                \
+#define FIO \
     ios::sync_with_stdio(false); \
     cin.tie(0);                  \
     cout.tie(0);
 
 int main()
 {
-    int n; cin >> n;
+    FIO;
+    int n;
+    cin >> n;
 
-    map <string, int> m;
+    map<string, int> m;
     int mx = 0;
 
     forn(i, n)
     {
-        string s; cin >> s;
+        string s;
+        cin >> s;
         sort(all(s));
         m[s]++;
         if (m[s] > mx)
             mx = m[s];
     }
+
     cout << mx << endl;
+
+    return 0;
 }
