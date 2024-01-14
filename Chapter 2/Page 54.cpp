@@ -15,24 +15,27 @@ Output
 168 76127
 */
 #include <bits/stdc++.h>
-
 using namespace std;
 
 typedef long long ll;
 
-#define forn(i, n)          for (int i = 0; i < int(n); i++)
-#define forn1(i, n)          for (int i = 1; i < int(n); i++)
+#define forn(i, n) for (int i = 0; i < int(n); i++)
+#define forn1(i, n) for (int i = 1; i < int(n); i++)
 #define all(c) (c).begin(), (c).end()
-#define pb                  push_back
-#define MOD                 1000000007 // 998244353
-#define FIO                 ios::sync_with_stdio(false); cin.tie(0); cout.tie(0);
+#define pb push_back
+#define MOD 1000000007 // 998244353
+#define FIO                \
+    ios::sync_with_stdio(false); \
+    cin.tie(0);                  \
+    cout.tie(0);
 
 pair<int, int> Eratosthenes(int a, int b)
 {
-    vector <bool> prime(b + 1, true);
+    vector<bool> prime(b + 1, true);
     ll sum = 0;
     prime[0] = prime[1] = false;
     int count = 0;
+
     for (int i = 2; i * i <= b; i++)
     {
         if (prime[i])
@@ -41,20 +44,26 @@ pair<int, int> Eratosthenes(int a, int b)
                 prime[j] = false;
         }
     }
+
     for (int i = a; i <= b; i++)
+    {
         if (prime[i])
         {
             sum += i;
+            sum %= 1000000;
             count++;
         }
-    
+    }
+
     return make_pair(count, sum);
 }
 
 int main()
 {
-	int a, b;
+    int a, b;
     cin >> a >> b;
     pair<int, int> result = Eratosthenes(a, b);
-    cout << result.first << " " << (result.second % 1000000) << endl;
+    cout << result.first << " " << (result.second) << endl;
+
+    return 0;
 }
