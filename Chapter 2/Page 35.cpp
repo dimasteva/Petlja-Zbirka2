@@ -27,9 +27,9 @@ typedef long long ll;
 
 int main()
 {
-	int n;
-	cin >> n;
-	int a, d;
-	while(cin >> a >> d)
-		cout << a + (n - 1) * d;
+        ll n;
+        cin >> n;
+        ll a, d;
+        while(cin >> a >> d)
+        	cout << a + (n - 1) * d << endl;
 }
