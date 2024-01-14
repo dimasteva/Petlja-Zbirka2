@@ -37,7 +37,6 @@ Output
 */
 
 #include <bits/stdc++.h>
-
 using namespace std;
 
 typedef long long ll;
@@ -47,28 +46,37 @@ typedef long long ll;
 #define all(c) (c).begin(), (c).end()
 #define pb push_back
 #define MOD 1000000007 // 998244353
-#define FIO                \
+#define FIO \
     ios::sync_with_stdio(false); \
     cin.tie(0);                  \
     cout.tie(0);
 
 int main()
 {
-    int n; cin >> n;
-    vector <int> a(n);
-    for(int &x : a)
+    ll n;
+    cin >> n;
+    vector<int> a(n);
+
+    for (int &x : a)
         cin >> x;
+
     sort(all(a));
 
-    int num = (n - 2) * (n - 2 + 1) / 2;
-    int i = 0;
-    int cnt = 0;
+    ll num = (n - 2) * (n - 2 + 1) / 2;
+    ll i = 0;
+    ll cnt = 0;
     ll sum = 0;
-    while(num)
+
+    while (num)
     {
         sum += num * a[i++];
         sum %= 1000000;
         num -= n - 2 - cnt++;
     }
+
+    cout << sum;
+
+    return 0;
+}
     cout << sum;
 }
