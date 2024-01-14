@@ -22,7 +22,6 @@ Output
 */
 
 #include <bits/stdc++.h>
-
 using namespace std;
 
 typedef long long ll;
@@ -32,7 +31,7 @@ typedef long long ll;
 #define all(c) (c).begin(), (c).end()
 #define pb push_back
 #define MOD 1000000007 // 998244353
-#define FIO                \
+#define FIO \
     ios::sync_with_stdio(false); \
     cin.tie(0);                  \
     cout.tie(0);
@@ -41,20 +40,23 @@ int main()
 {
     int n;
     cin >> n;
-    set <ll> s;
+    set<ll> s;
 
     forn(i, n)
     {
         int x1, y1, z1, x2, y2, z2;
         cin >> x1 >> y1 >> z1 >> x2 >> y2 >> z2;
 
-        int dx = x2 - x1;
-        int dy = y2 - y1;
-        int dz = z2 - z1;
+        ll dx = x2 - x1;
+        ll dy = y2 - y1;
+        ll dz = z2 - z1;
 
         ll distanceSquared = dx * dx + dy * dy + dz * dz;
 
         s.insert(distanceSquared);
     }
+
     cout << s.size() << endl;
+
+    return 0;
 }
