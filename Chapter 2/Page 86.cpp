@@ -30,53 +30,56 @@ Output:
 */
 
 #include <bits/stdc++.h>
-
 using namespace std;
 
 typedef long long ll;
 
-#define forn(i, n)          for (int i = 0; i < int(n); i++)
-#define forn1(i, n)          for (int i = 1; i < int(n); i++)
+#define forn(i, n) for (int i = 0; i < int(n); i++)
+#define forn1(i, n) for (int i = 1; i < int(n); i++)
 #define all(c) (c).begin(), (c).end()
-#define pb                  push_back
-#define MOD                 1000000007 // 998244353
-#define FIO                 ios::sync_with_stdio(false); cin.tie(0); cout.tie(0);
+#define pb push_back
+#define MOD 1000000007 // 998244353
+#define FIO \
+    ios::sync_with_stdio(false); \
+    cin.tie(0);                  \
+    cout.tie(0);
 
 struct Kid
 {
-	vector <int> grades;
-	int sum;	
+    vector<int> grades;
+    int sum;
 };
-
-bool Compare(const Kid &a, const Kid &b)
-{
-	return a.sum > b.sum;
-}
 
 int main()
 {
-	int u, o;
-	cin >> u >> o;
-	
-	vector <Kid> kids(u);
-	
-	forn(i, u)
-	{
-		kids[i].grades.resize(o);
-		kids[i].sum = 0;
-		forn(j, o)
-		{
-			cin >> kids[i].grades[j];
-			kids[i].sum += kids[i].grades[j];
-		}
-	}
-	
-	sort(all(kids), Compare);
-	
-	forn(i, u)
-	{
-		forn(j, o)
-			cout << kids[i].grades[j] << " ";
-		cout << endl;
-	}
+    int u, o;
+    cin >> u >> o;
+
+    vector<Kid> kids(u);
+
+    forn(i, u)
+    {
+        kids[i].grades.resize(o);
+        kids[i].sum = 0;
+
+        forn(j, o)
+        {
+            cin >> kids[i].grades[j];
+            kids[i].sum += kids[i].grades[j];
+        }
+    }
+
+    stable_sort(kids.begin(), kids.end(),
+              [](const Kid& u1, const Kid& u2) {
+                  return u1.sum > u2.sum;
+              });
+
+    forn(i, u)
+    {
+        forn(j, o)
+            cout << kids[i].grades[j] << " ";
+        cout << endl;
+    }
+
+    return 0;
 }
