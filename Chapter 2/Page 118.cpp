@@ -19,7 +19,6 @@ There are exactly 5 papers with at least 5 citations (5, 12, 9, 7, 17). The rema
 */
 
 #include <bits/stdc++.h>
-
 using namespace std;
 
 typedef long long ll;
@@ -29,27 +28,32 @@ typedef long long ll;
 #define all(c) (c).begin(), (c).end()
 #define pb push_back
 #define MOD 1000000007 // 998244353
-#define FIO                \
+#define FIO \
     ios::sync_with_stdio(false); \
     cin.tie(0);                  \
     cout.tie(0);
 
 int main()
 {
-    int n; cin >> n;
-    vector <int> a(n);
-    for (int &x : a)    
+    int n;
+    cin >> n;
+    vector<int> a(n);
+
+    for (int &x : a)
         cin >> x;
-    
+
     sort(all(a), greater<int>());
 
     int h = a[0];
     int cnt = 1;
+
     forn1(i, n)
-    {   
+    {
         cnt++;
         if (cnt > a[i])
             break;
     }
-    cout << cnt - 1 << endl;
+    cout << cnt - (cnt != n) << endl;
+
+    return 0;
 }
