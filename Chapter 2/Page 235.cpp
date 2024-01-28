@@ -1,24 +1,22 @@
 /*
-Task: Number of Increasing Segments
-Given an array a of integers, of length n. Write a program that determines the number of ways we can choose increasing segments in the array.
-An increasing segment consists of consecutive elements of the array a[p] < a[p+1] < ... < a[q], where 0 ≤ p < q < n.
+Task: Maximum Segment Sum
+Write a program that determines the maximum sum of a segment (subarray of consecutive elements) of a given array.
 
-Input: The first line of the standard input contains a natural number n (2 ≤ n ≤ 10000), the number of elements in the array. In each of the next n lines of the standard input, there is one element of the array.
+Input: Enter the number n (1 ≤ n ≤ 50,000) from the standard input, followed by n integers between -10 and 10, with each number on a separate line.
 
-Output: Print on the standard output in a single line the number of increasing segments in the given array.
+Output: Print the requested sum to the standard output.
 
 Example:
 Input
-5
-1
+6
+2
+-3
+4
+-1
 3
-4
 -2
-10
 Output
-4
-Explanation
-These are the arrays [1, 3], [1, 3, 4], [3, 4], [-2, 10].
+6
 */
 
 #include <bits/stdc++.h>
