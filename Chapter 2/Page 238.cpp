@@ -38,13 +38,22 @@ typedef long long ll;
 int main() {
     FIO;
     int n; cin >> n;
-    vector <int> v(n);
-    for (int &x : v)
-        cin >> x;
+    vector <int> v(n, 0);
+    int c; cin >> c;
+    v[0] = c;
+    forn1(i, n)
+    {
+        cin >> v[i];
+        v[i] += v[i - 1];
+    }
     int m; cin >> m;
     while(m--)
     {
         int a, b; cin >> a >> b;
-        cout << accumulate(begin(v) + a, begin(v) + b + 1, 0) << endl;
+        if (a == 0)
+            cout << v[b] << endl;
+        else
+            cout << v[b] - v[a - 1] << endl;
     }
 }
+
