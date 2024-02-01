@@ -49,23 +49,17 @@ int main()
     for (int &x : c)
         cin >> x;
 
-    // Initialize the three pointers
     int i = 0, j = 0, k = 0;
 
-    // Use the three pointers to find common elements
     while (i < n && j < m && k < l) {
-        // If a[i], b[j] and c[k] are same
         if (a[i] == b[j] && b[j] == c[k]) {
             cout << a[i] << " ";
             i++; j++; k++;
         }
-        // If a[i] is smallest
         else if (a[i] < b[j])
             i++;
-        // If b[j] is smallest
         else if (b[j] < c[k])
             j++;
-        // If c[k] is smallest
         else
             k++;
     }
