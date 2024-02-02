@@ -37,51 +37,35 @@ int main() {
 
     int t, m, budget;
     cin >> t;
-    vector<pair<int, int>> items;
-
+    vector<int> keyboards(t);
     forn(i, t) {
-        int price;
-        cin >> price;
-        items.pb({price, 0});
+        cin >> keyboards[i];
     }
 
     cin >> m;
+    vector<int> mice(m);
     forn(i, m) {
-        int price;
-        cin >> price;
-        items.pb({price, 1});
+        cin >> mice[i];
     }
 
     cin >> budget;
 
-    sort(all(items));
+    sort(all(keyboards));
+    sort(all(mice));
 
-    int l = 0, r = items.size() - 1;
     int max_price = -1;
-    while (l < r) {
-        if (items[l].second != items[r].second) {
-            int total_price = items[l].first + items[r].first;
-            if (total_price <= budget) {
-                max_price = max(max_price, total_price);
-                l++;
-            } else {
-                r--;
-            }
+    int l = 0, r = m - 1;
+    while (l < t && r >= 0) {
+        int total_price = keyboards[l] + mice[r];
+        if (total_price > budget) {
+            --r;
         } else {
-            if (items[l].second == 0) {
-                l++;
-            } else {
-                r--;
-            }
+            max_price = max(max_price, total_price);
+            ++l;
         }
     }
 
-    if (max_price == -1) {
-        cout << "0";
-    } else {
-        cout << max_price << endl;
-    }
+    cout << max_price << endl;
 
     return 0;
 }
-
