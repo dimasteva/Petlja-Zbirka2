@@ -17,3 +17,44 @@ Input
 Output
 1
 */
+#include <bits/stdc++.h>
+
+using namespace std;
+
+typedef long long ll;
+
+#define forn(i, n) for (int i = 0; i < int(n); i++)
+#define forn1(i, n) for (int i = 1; i < int(n); i++)
+#define all(c) (c).begin(), (c).end()
+#define pb push_back
+#define MOD 1000000007 // 998244353
+#define FIO                \
+    ios::sync_with_stdio(false); \
+    cin.tie(0);                  \
+    cout.tie(0);
+    
+int main()
+{
+	int n; cin >> n;
+	ll sum = 0;
+	vector <int> a(n);
+	for (int &x : a)
+	{
+		cin >> x;
+		sum += x;
+	}
+	ll km = 0;
+	int sol = -1;
+	int mn = INT_MAX;
+	forn(i, n)
+	{
+		km += a[i];
+		ll res = abs(km - (sum - km));
+		if (res < mn)
+		{
+			sol = i;
+			mn = res;
+		}
+	}
+	cout << sol << endl;
+}
