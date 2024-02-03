@@ -29,29 +29,36 @@ typedef long long ll;
 #define all(c) (c).begin(), (c).end()
 #define pb push_back
 #define MOD 1000000007 // 998244353
-#define FIO                \
-    ios::sync_with_stdio(false); \
-    cin.tie(0);                  \
-    cout.tie(0);
+#define FIO ios::sync_with_stdio(false); cin.tie(0); cout.tie(0);
 
 int main() {
-    int r, n;
-    cin >> r >> n;
-    map<int, int> heights;
-    forn(i, n) {
-        int h;
-        cin >> h;
-        heights[h]++;
-    }
-
-    long long pairs = 0;
-    for(auto it = heights.begin(); it != heights.end(); ++it) {
-        if(heights.count(it->first + r)) {
-            pairs += (long long)it->second * heights[it->first + r];
+    FIO;
+    int difference;
+    cin >> difference;
+    int n;
+    cin >> n;
+    vector<int> heights(n);
+    forn(i, n) cin >> heights[i];
+    sort(all(heights));
+    ll pairs = 0;
+    int i = 0, j = 1;
+    while (j < n) {
+        if (heights[j] - heights[i] < difference)
+            j++;
+        else if (heights[j] - heights[i] > difference)
+            i++;
+        else {
+            int ii;
+            for (ii = i+1; ii < n && heights[ii] == heights[i]; ii++);
+            int count_i = ii - i;
+            i = ii;
+            int jj;
+            for (jj = j+1; jj < n && heights[jj] == heights[j]; jj++);
+            int count_j = jj - j;
+            j = jj;
+            pairs += (ll)count_i * count_j;
         }
     }
-
     cout << pairs << endl;
-
     return 0;
 }
