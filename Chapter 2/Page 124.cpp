@@ -1,4 +1,5 @@
-/*Task: Number of Pairs with Given Sum
+/*
+Task: Number of Pairs with Given Sum
 
 Given an integer s and an array of distinct integers, write a program to determine the number of pairs in the array whose sum is equal to the given number s.
 
