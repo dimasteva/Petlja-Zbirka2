@@ -57,13 +57,9 @@ int main()
     vector<int> a(n);
     forn(i, n)
     a[i] = i + 1;
+    do {
     forn(i, n)
         cout << a[i] << " ";
     cout << endl;
-    while(nextpermutation(a, n))
-    {
-        forn(i, n)
-            cout << a[i] << " ";
-        cout << endl;
-    }  
+    } while(nextpermutation(a, n)); 
 }
