@@ -22,7 +22,6 @@ typedef long long ll;
 #define MOD 1000000007
 #define all(c) (c).begin(), (c).end()
 
-ll sum = 0;
 bool QueensAttacking(vector<int>& p, int k)
 {
     forn(i, k)
@@ -37,7 +36,6 @@ bool QueensAttacking(vector<int>& p, int k)
 
 void nQueen(vector<int>& p, int k)
 {
-    sum++;
     if (k == p.size())
     {
         for (int x : p)
@@ -64,5 +62,4 @@ int main()
 {
     int n; cin >> n;
     nQueen(n);
-    cout << sum << endl;
 }
