@@ -65,8 +65,6 @@ typedef long long ll;
 #define FIO                 ios::sync_with_stdio(false); cin.tie(0); cout.tie(0);
 #define all(c) (c).begin(), (c).end()
 
-using namespace std;
-
 int random_value(int i, int j) {
   mt19937_64 random_generator;
   uniform_int_distribution<int> dist(i, j);
