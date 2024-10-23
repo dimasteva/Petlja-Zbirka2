@@ -9,7 +9,7 @@ Write a program that calculates and displays the values of given arithmetic expr
 <operation1> ::= '+' | '-'
 <operation2> ::= '*' | '/'
 Input: Each line of standard input contains a valid expression (the expression does not contain spaces).
-Output: Each line of standard output contains, in order, the values of the expressions given in standard input, each value on a separate line. If the expression is undefined due to division by 0, display the message "division by zero."
+Output: Each line of standard output contains, in order, the values of the expressions given in standard input, each value on a separate line. If the expression is undefined due to division by 0, display the message "deljenje nulom"
 Example
 Input
 1+2*3-4
@@ -19,6 +19,6 @@ Input
 Output
 3
 -14
-division by zero
+deljenje nulom
 4
 */
