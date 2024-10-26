@@ -15,3 +15,45 @@ Output
 979850535876
 */
 
+#include <bits/stdc++.h>
+
+using namespace std;
+
+typedef long long ll;
+
+#define forn(i, n) for (int i = 0; i < int(n); i++)
+#define forn1(i, n) for (int i = 1; i < int(n); i++)
+#define all(c) (c).begin(), (c).end()
+#define pb push_back
+#define MOD 1000000007 // 998244353
+#define FIO                \
+    ios::sync_with_stdio(false); \
+    cin.tie(0);                  \
+    cout.tie(0);
+
+int main()
+{
+    FIO
+    int k; cin >> k;
+    priority_queue<ll, vector<ll>, greater<ll>> pq;
+    unordered_set<ll> visited;
+    ll limit = pow(10, 12);
+    ll maxBase = sqrt(limit) + 1;
+    for(ll base = 2; base <= maxBase; base++)
+    {
+    	ll value = base * base;
+    	while(value <= limit)
+    	{
+    		if (visited.find(value) == visited.end())
+    		{
+    			pq.push(value);
+    			visited.insert(value);
+			}
+			value *= base;
+		}
+	}
+    forn(i, k)
+    	pq.pop();
+	
+	cout << pq.top();
+}
