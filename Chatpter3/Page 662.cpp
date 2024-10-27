@@ -36,36 +36,40 @@ typedef long long ll;
 int main()
 {
     FIO
-    multiset<int> m;
-    multiset<int>::const_iterator mid;
-
+    priority_queue<int, vector<int>, greater<int>> right;
+    priority_queue<int, vector<int>, less<int>> left;
+    
     char c;
     while(cin >> c)
     {
-        if (c == 'd')
-        {
-            int d; cin >> d;
-            m.insert(d);
-
-            if (m.size() == 1)
-                mid = begin(m);
-            else if (d < *mid)
-            {
-                if (m.size() % 2 != 0)
-                    advance(mid, -1);
-            }
-            else
-            {
-                if (m.size() % 2 == 0)
-                    advance(mid, 1);
-            }
-        }
-        else
-        {
-            double d = *mid;
-            if (m.size() % 2 == 0)
-                d = (*prev(mid) + *mid) / 2.0;
-            cout << setprecision(1) << fixed << showpoint << d << endl;    
-        }
-    }
+    	if (c == 'd')
+    	{
+    		int d; cin >> d;
+    		if (right.empty())
+    			right.push(d);
+    		else
+    		{
+    			if (d <= right.top())
+    				left.push(d);
+    			else
+    				right.push(d);
+    			if (left.size() > right.size())
+    			{
+    				right.push(left.top());
+    				left.pop();
+				}
+				else if (right.size() > left.size() + 1)
+				{
+					left.push(right.top());
+					right.pop();
+				}
+			}
+		} else
+		{
+			double sol = right.top();
+			if ((left.size() + right.size()) % 2 == 0)
+				sol = (left.top() + right.top()) / 2.0;
+			cout << setprecision(1) << fixed << showpoint << sol << endl;
+		}
+	}
 }
